@@ -27,3 +27,10 @@ class BasketPage(BasePage):
         price = price.text
         # assert "£9.99" in price, "something with a price"
         assert True
+
+    def should_be_empty_basket(self):
+        te = self.browser.find_element(*BasketPageLocators.BASKET_EMPTY_TEXT).text
+        ASSERT_BASKET_EMPTY_RU = "Ваша корзина пуста Продолжить покупки"
+        ASSERT_BASKET_EMPTY_EN = "Your basket is empty. Continue shopping"
+
+        assert ASSERT_BASKET_EMPTY_RU == te or ASSERT_BASKET_EMPTY_EN == te, "basket not empty"

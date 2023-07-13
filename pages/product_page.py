@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import ProductPageLocators, BasePageLocators
 
 
 class ProductPage(BasePage):
@@ -13,7 +13,7 @@ class ProductPage(BasePage):
         button_adding.click()
 
     def go_to_basket(self):
-        button_view_basket = self.browser.find_element(*ProductPageLocators.BUTTON_VIEW_BASKET)
+        button_view_basket = self.browser.find_element(*BasePageLocators.BUTTON_VIEW_BASKET)
         button_view_basket.click()
 
     def guest_cant_see_success_message_after_adding_product_to_basket(self):
